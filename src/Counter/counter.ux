@@ -1,0 +1,27 @@
+<template>
+    <div class="counter">
+        <text class="title">{{count}}</text>
+        <input class="btn" type="button" value="+" onclick="increment" />
+        <input class="btn" type="button" value="-" onclick="decrement" />
+    </div>
+</template>
+
+<script>
+import Vuex from 'quickapp-vuex'
+const {mapGetters, mapMutations} = Vuex.createNamespacedHelpers('counter')
+export default Vuex.Component({
+  computed: {
+    ...mapGetters(['count'])
+  },
+  ...mapMutations(['increment', 'decrement']),
+})
+</script>
+
+<style>
+.counter {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+}
+</style>

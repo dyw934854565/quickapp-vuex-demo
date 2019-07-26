@@ -1,0 +1,38 @@
+<template>
+    <div class="prop">
+        <text value="{{vuexTitle}}"></text>
+    </div>
+</template>
+
+<script>
+import Vuex from 'quickapp-vuex'
+export default Vuex.Component({
+  props: {
+    title: String
+  },
+  computed: {
+    vuexTitle () {
+      return 'vuex-' + this.title
+    }
+  },
+  onInit() {
+  },
+  watch: {
+    title (newVal, oldVal) {
+      console.log('prop title change', newVal, oldVal)
+    },
+    vuexTitle (newVal, oldVal) {
+      console.log('vuexTitle', newVal, oldVal)
+    }
+  }
+})
+</script>
+
+<style>
+.counter {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0px;
+}
+</style>
